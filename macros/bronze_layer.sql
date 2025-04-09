@@ -6,8 +6,10 @@ FROM @s3_stage/NH_ProviderInfo_Oct2024.csv
 FILE_FORMAT = (
     TYPE = 'CSV',
     FIELD_OPTIONALLY_ENCLOSED_BY = '"',
-    SKIP_HEADER = 1
+    SKIP_HEADER = 1,
+    ENCODING = 'ISO-8859-1'
 )
+ON_ERROR = 'CONTINUE'
 FORCE = TRUE;
 {% endmacro %}
 
@@ -19,8 +21,10 @@ FROM @s3_stage/NH_QualityMsr_Claims_Oct2024.csv
 FILE_FORMAT = (
     TYPE = 'CSV',
     FIELD_OPTIONALLY_ENCLOSED_BY = '"',
-    SKIP_HEADER = 1
+    SKIP_HEADER = 1,
+    ENCODING = 'ISO-8859-1'
 )
+ON_ERROR = 'CONTINUE'
 FORCE = TRUE;
 {% endmacro %}
 
@@ -32,7 +36,9 @@ FROM @s3_stage/PBJ_Daily_Nurse_Staffing_Q2_2024.csv
 FILE_FORMAT = (
     TYPE = 'CSV',
     FIELD_OPTIONALLY_ENCLOSED_BY = '"',
-    SKIP_HEADER = 1
+    SKIP_HEADER = 1,
+    ENCODING = 'ISO-8859-1'
 )
+ON_ERROR = 'CONTINUE'
 FORCE = TRUE;
 {% endmacro %}
