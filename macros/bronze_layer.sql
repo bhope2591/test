@@ -42,3 +42,18 @@ FILE_FORMAT = (
 ON_ERROR = 'CONTINUE'
 FORCE = TRUE;
 {% endmacro %}
+
+{% macro load_raw_snf_vbp_facility_performance() %}
+TRUNCATE TABLE BH_DB.PUBLIC.RAW_FY_2024_SNF_VBP_FACILITY_PERFORMANCE;
+
+COPY INTO BH_DB.PUBLIC.RAW_FY_2024_SNF_VBP_FACILITY_PERFORMANCE
+FROM @s3_stage/FY_2024_SNF_VBP_Facility_Performance.csv
+FILE_FORMAT = (
+    TYPE = 'CSV',
+    FIELD_OPTIONALLY_ENCLOSED_BY = '"',
+    SKIP_HEADER = 1,
+    ENCODING = 'ISO-8859-1'
+)
+ON_ERROR = 'CONTINUE'
+FORCE = TRUE;
+{% endmacro %}
