@@ -65,3 +65,20 @@
     {% endset %}
     {{ return(sql) }}
 {% endmacro %}
+
+{% macro load_US_ave_info() %}
+    {% set sql %}
+        TRUNCATE TABLE BH_DB.PUBLIC.NH_STATE_US_AVERAGES_INFO_DIM;
+        COPY INTO BH_DB.PUBLIC.NH_STATE_US_AVERAGES_INFO_DIM
+        FROM @s3_stage/NH_StateUSAverages_Oct2024.csv
+        FILE_FORMAT = (
+            TYPE = 'CSV',
+            FIELD_OPTIONALLY_ENCLOSED_BY = '"',
+            SKIP_HEADER = 1,
+            ENCODING = 'ISO-8859-1'
+        )
+        ON_ERROR = 'CONTINUE'
+        FORCE = TRUE;
+    {% endset %}
+    {{ return(sql) }}
+{% endmacro %}
