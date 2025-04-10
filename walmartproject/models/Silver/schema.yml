@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: walmart_raw
+    database: BH_DB
+    schema: PUBLIC
+    tables:
+      - name: RAW_FACT
+      - name: RAW_STORES
+      - name: RAW_DEPARTMENT

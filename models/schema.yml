@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: healthcare_raw
+    database: BH_DB
+    schema: PUBLIC
+    tables:
+      - name: RAW_NH_PROVIDERINFO_OCT2024
+      - name: RAW_NH_QUALITYMSR_CLAIMS_OCT2024
+      - name: RAW_PBJ_DAILY_NURSE_STAFFING
+      - name: RAW_FY_2024_SNF_VBP_FACILITY_PERFORMANCE
+      - name: NH_STATE_US_AVERAGES_INFO_DIM
+      
